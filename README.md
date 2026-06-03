@@ -1,6 +1,13 @@
 # SVG Interactive Animation Engine
 
-A lightweight, purely imperative JavaScript animation engine designed to sequence complex, timeline-based SVG animations and interactive prototypes without relying on CSS keyframes or external libraries.
+*Born out of necessity, this library was originally created to build animated assets and interactive product walkthroughs for **[The Chat Quotient](https://thechatquotient.com/)** Chrome extension. Traditional animation tools can be expensive and carry a steep learning curve. Instead of investing countless hours and resources, I collaborated with Google Gemini to engineer a lightweight, purely SVG-based solution. The result was so effective that I decided to abstract the core logic into this reusable, open-source engine.*
+
+*Now, anyone can download this library and empower their AI coding agent to generate beautiful, interactive SVG walkthroughs with ease!*
+
+<div align="center">
+  <iframe src="index.html" width="100%" height="600" style="border: 1px solid #ccc; border-radius: 8px; margin: 20px 0;"></iframe>
+</div>
+
 
 ## Overview
 
