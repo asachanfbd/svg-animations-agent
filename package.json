@@ -15,8 +15,5 @@
     "interactive"
   ],
   "author": "Abhishek Sachan",
-  "license": "MIT",
-  "files": [
-    "svg_animations.js"
-  ]
+  "license": "MIT"
 }
