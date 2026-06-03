@@ -5,7 +5,7 @@
 *Now, anyone can download this library and empower their AI coding agent to generate beautiful, interactive SVG walkthroughs with ease!*
 
 <div align="center">
-  <a href="https://asachanfbd.github.io/svg-animations-agent/" target="_blank">
+  <a href="https://asachanfbd.github.io/svg-animations-agent/sample.html" target="_blank">
     <img src="demo-animation-ai-agent.png" alt="Watch the Interactive Demo" width="600" style="border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
   </a>
   <p><em>Click the image above to view the live interactive demo!</em></p>
