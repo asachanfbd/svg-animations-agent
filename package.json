@@ -1,0 +1,19 @@
+{
+  "name": "svg-interactive-animation-engine",
+  "version": "1.0.0",
+  "description": "A lightweight, purely imperative JavaScript animation engine designed to sequence complex, timeline-based SVG animations and interactive prototypes without relying on CSS keyframes or external libraries.",
+  "main": "svg_animations.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "svg",
+    "animation",
+    "engine",
+    "timeline",
+    "imperative",
+    "interactive"
+  ],
+  "author": "Abhishek Sachan",
+  "license": "MIT"
+}

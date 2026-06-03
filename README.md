@@ -11,6 +11,27 @@
   <p><em>Click the image above to view the live interactive demo!</em></p>
 </div>
 
+## Installation
+
+### Via NPM (Recommended for React, Vue, Next.js)
+
+```bash
+npm install svg-interactive-animation-engine
+```
+
+```javascript
+import AnimationManager from 'svg-interactive-animation-engine';
+```
+
+### Via CDN / Script Tag (For Vanilla HTML)
+
+Download `svg_animations.js` and include it directly in your HTML:
+
+```html
+<script src="svg_animations.js"></script>
+```
+
+*(When included via a script tag, `AnimationManager` is automatically attached to the global `window` object.)*
 
 ## Overview
 

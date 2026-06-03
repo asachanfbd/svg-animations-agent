@@ -1,4 +1,12 @@
-(function(window) {
+(function(global, factory) {
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
+        module.exports = factory();
+    } else if (typeof define === 'function' && define.amd) {
+        define(factory);
+    } else {
+        global.AnimationManager = factory();
+    }
+}(typeof window !== 'undefined' ? window : this, function() {
     class EventEmitter {
         constructor() {
             this.listeners = {};
@@ -268,7 +276,6 @@
         }
     }
 
-    // Attach to global window
-    window.AnimationManager = AnimationManager;
-    
-})(window);
+    AnimationManager.Layer = Layer;
+    return AnimationManager;
+}));
