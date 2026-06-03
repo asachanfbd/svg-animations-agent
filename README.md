@@ -6,7 +6,7 @@ Now, anyone can download this library and empower their AI coding agent to gener
 
 <div align="center">
   <a href="https://asachanfbd.github.io/svg-animations-agent/sample.html" target="_blank">
-    <img src="demo-animation-ai-agent.png" alt="Watch the Interactive Demo" width="600" style="border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+    <img src="https://raw.githubusercontent.com/asachanfbd/svg-animations-agent/main/demo-animation-ai-agent.png" alt="Watch the Interactive Demo" width="600" style="border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
   </a>
   <p><em>Click the image above to view the live interactive demo!</em></p>
 </div>
