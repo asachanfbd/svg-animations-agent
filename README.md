@@ -1,6 +1,6 @@
 # SVG Interactive Animation Engine
 
-*Born out of necessity, this library was originally created to build animated assets and interactive product walkthroughs for **[The Chat Quotient](https://thechatquotient.com/)** Chrome extension. Traditional animation tools can be expensive and carry a steep learning curve. Instead of investing countless hours and resources, I collaborated with Google Gemini to engineer a lightweight, purely SVG-based solution. The result was so effective that I decided to abstract the core logic into this reusable, open-source engine.*
+*Born out of necessity, this library was originally created to build animated assets and interactive product walkthroughs for **[Whatsapp CRM](https://thechatquotient.com/)** & **[Daily Standup Meeting Bot](https://www.usestrova.com/)**. Traditional animation tools can be expensive and carry a steep learning curve. Instead of investing countless hours and resources, I collaborated with Google Gemini to engineer a lightweight, purely SVG-based solution. The result was so effective that I decided to abstract the core logic into this reusable, open-source engine.*
 
 *Now, anyone can download this library and empower their AI coding agent to generate beautiful, interactive SVG walkthroughs with ease!*
 
