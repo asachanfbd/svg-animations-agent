@@ -1,6 +1,6 @@
 {
   "name": "svg-interactive-animation-engine",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A lightweight, purely imperative JavaScript animation engine designed to sequence complex, timeline-based SVG animations and interactive prototypes without relying on CSS keyframes or external libraries.",
   "main": "svg_animations.js",
   "scripts": {
