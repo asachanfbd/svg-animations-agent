@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent Animation</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f8fafc;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        #svg-container { width: 100%; height: 100%; position: relative; }
+        svg { width: 100%; height: 100%; display: block; }
+        .grid-pattern {
+            fill: none; stroke: #334155; stroke-width: 1; stroke-dasharray: 4 4; opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div id="svg-container">
+        <svg xmlns="http://www.w3.org/2000/svg" id="animated-svg" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet">
+            <defs>
+                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="8" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+                <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+                    <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.1" />
+                </filter>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+                </pattern>
+            </defs>
+            
+            <rect id="bg-rect" width="200%" height="200%" fill="url(#grid)" />
+            
+            <g transform="translate(500, 250)">
+                <!-- Progress Stepper -->
+                <g id="progress-stepper" transform="translate(0, -170)">
+                    <!-- Connecting Lines -->
+                    <g transform="translate(-137, 14)">
+                        <rect x="0" y="0" width="70" height="4" fill="#cbd5e1" rx="2" />
+                        <g id="line-1-2">
+                            <rect x="0" y="0" width="70" height="4" fill="#3b82f6" rx="2" />
+                        </g>
+                    </g>
+                    <g transform="translate(-35, 14)">
+                        <rect x="0" y="0" width="70" height="4" fill="#cbd5e1" rx="2" />
+                        <g id="line-2-3">
+                            <rect x="0" y="0" width="70" height="4" fill="#3b82f6" rx="2" />
+                        </g>
+                    </g>
+                    <g transform="translate(67, 14)">
+                        <rect x="0" y="0" width="70" height="4" fill="#cbd5e1" rx="2" />
+                        <g id="line-3-4">
+                            <rect x="0" y="0" width="70" height="4" fill="#3b82f6" rx="2" />
+                        </g>
+                    </g>
+
+                    <!-- Steps -->
+                    <g transform="translate(-169, 0)">
+                        <g transform="scale(1.68) translate(1, 0)">
+                            <path fill="#3b82f6" d="M16.417 9.6A7.917 7.917 0 1 1 8.5 1.683 7.917 7.917 0 0 1 16.417 9.6zM9.666 6.508H8.248L6.09 8.09l.806 1.103 1.222-.945v4.816h1.547z"/>
+                        </g>
+                    </g>
+                    <g transform="translate(-67, 0)">
+                        <g transform="scale(1.68) translate(1, 0)">
+                            <path fill="#94a3b8" d="M16.417 9.6A7.917 7.917 0 1 1 8.5 1.683 7.917 7.917 0 0 1 16.417 9.6zm-5.431 2.113H8.309l1.519-1.353q.223-.203.43-.412a2.974 2.974 0 0 0 .371-.449 2.105 2.105 0 0 0 .255-.523 2.037 2.037 0 0 0 .093-.635 1.89 1.89 0 0 0-.2-.889 1.853 1.853 0 0 0-.532-.63 2.295 2.295 0 0 0-.76-.37 3.226 3.226 0 0 0-.88-.12 2.854 2.854 0 0 0-.912.144 2.373 2.373 0 0 0-.764.42 2.31 2.31 0 0 0-.55.666 2.34 2.34 0 0 0-.274.89l1.491.204a1.234 1.234 0 0 1 .292-.717.893.893 0 0 1 1.227-.056.76.76 0 0 1 .222.568 1.002 1.002 0 0 1-.148.536 2.42 2.42 0 0 1-.389.472L6.244 11.77v1.295h4.742z"/>
+                            <path id="step-2-blue" fill="#3b82f6" opacity="0" d="M16.417 9.6A7.917 7.917 0 1 1 8.5 1.683 7.917 7.917 0 0 1 16.417 9.6zm-5.431 2.113H8.309l1.519-1.353q.223-.203.43-.412a2.974 2.974 0 0 0 .371-.449 2.105 2.105 0 0 0 .255-.523 2.037 2.037 0 0 0 .093-.635 1.89 1.89 0 0 0-.2-.889 1.853 1.853 0 0 0-.532-.63 2.295 2.295 0 0 0-.76-.37 3.226 3.226 0 0 0-.88-.12 2.854 2.854 0 0 0-.912.144 2.373 2.373 0 0 0-.764.42 2.31 2.31 0 0 0-.55.666 2.34 2.34 0 0 0-.274.89l1.491.204a1.234 1.234 0 0 1 .292-.717.893.893 0 0 1 1.227-.056.76.76 0 0 1 .222.568 1.002 1.002 0 0 1-.148.536 2.42 2.42 0 0 1-.389.472L6.244 11.77v1.295h4.742z"/>
+                        </g>
+                    </g>
+                    <g transform="translate(35, 0)">
+                        <g transform="scale(1.68) translate(1, 0)">
+                            <path fill="#94a3b8" d="M16.417 9.6A7.917 7.917 0 1 1 8.5 1.683 7.917 7.917 0 0 1 16.417 9.6zm-5.489 1.56a1.469 1.469 0 0 0-.092-.523 1.537 1.537 0 0 0-.26-.444 1.647 1.647 0 0 0-.398-.342 1.69 1.69 0 0 0-.51-.208v-.028a1.513 1.513 0 0 0 .793-.505 1.403 1.403 0 0 0 .31-.923 1.626 1.626 0 0 0-.2-.821 1.814 1.814 0 0 0-.523-.58 2.282 2.282 0 0 0-.736-.343 3.251 3.251 0 0 0-.847-.111 3.01 3.01 0 0 0-.797.106 2.626 2.626 0 0 0-.718.315 2.222 2.222 0 0 0-.57.519 2.142 2.142 0 0 0-.36.727l1.444.333a.919.919 0 0 1 .32-.532.891.891 0 0 1 .579-.2.936.936 0 0 1 .574.187.633.633 0 0 1 .25.54.654.654 0 0 1-.357.63 1.128 1.128 0 0 1-.365.12 2.703 2.703 0 0 1-.426.033h-.454v1.13h.417a2.816 2.816 0 0 1 .481.042 1.493 1.493 0 0 1 .43.139.82.82 0 0 1 .306.264.712.712 0 0 1 .116.417.789.789 0 0 1-.088.388.776.776 0 0 1-.222.255.93.93 0 0 1-.306.144 1.291 1.291 0 0 1-.338.046 1.085 1.085 0 0 1-.731-.246 1.163 1.163 0 0 1-.38-.569l-1.445.38a2.186 2.186 0 0 0 .996 1.329 2.727 2.727 0 0 0 .769.31 3.665 3.665 0 0 0 .865.102 3.264 3.264 0 0 0 .894-.125 2.507 2.507 0 0 0 .792-.38 1.958 1.958 0 0 0 .57-.647 1.89 1.89 0 0 0 .217-.93z"/>
+                            <path id="step-3-blue" fill="#3b82f6" opacity="0" d="M16.417 9.6A7.917 7.917 0 1 1 8.5 1.683 7.917 7.917 0 0 1 16.417 9.6zm-5.489 1.56a1.469 1.469 0 0 0-.092-.523 1.537 1.537 0 0 0-.26-.444 1.647 1.647 0 0 0-.398-.342 1.69 1.69 0 0 0-.51-.208v-.028a1.513 1.513 0 0 0 .793-.505 1.403 1.403 0 0 0 .31-.923 1.626 1.626 0 0 0-.2-.821 1.814 1.814 0 0 0-.523-.58 2.282 2.282 0 0 0-.736-.343 3.251 3.251 0 0 0-.847-.111 3.01 3.01 0 0 0-.797.106 2.626 2.626 0 0 0-.718.315 2.222 2.222 0 0 0-.57.519 2.142 2.142 0 0 0-.36.727l1.444.333a.919.919 0 0 1 .32-.532.891.891 0 0 1 .579-.2.936.936 0 0 1 .574.187.633.633 0 0 1 .25.54.654.654 0 0 1-.357.63 1.128 1.128 0 0 1-.365.12 2.703 2.703 0 0 1-.426.033h-.454v1.13h.417a2.816 2.816 0 0 1 .481.042 1.493 1.493 0 0 1 .43.139.82.82 0 0 1 .306.264.712.712 0 0 1 .116.417.789.789 0 0 1-.088.388.776.776 0 0 1-.222.255.93.93 0 0 1-.306.144 1.291 1.291 0 0 1-.338.046 1.085 1.085 0 0 1-.731-.246 1.163 1.163 0 0 1-.38-.569l-1.445.38a2.186 2.186 0 0 0 .996 1.329 2.727 2.727 0 0 0 .769.31 3.665 3.665 0 0 0 .865.102 3.264 3.264 0 0 0 .894-.125 2.507 2.507 0 0 0 .792-.38 1.958 1.958 0 0 0 .57-.647 1.89 1.89 0 0 0 .217-.93z"/>
+                        </g>
+                    </g>
+                    <g transform="translate(137, 0)">
+                        <path fill="#94a3b8" d="M16.359 17.583v-4.405l-2.971 4.405h2.971zM16 3c-7.18 0-13 5.82-13 13s5.82 13 13 13 13-5.82 13-13-5.82-13-13-13zM20.344 19.739h-1.594v2.595h-2.391v-2.595h-5.281v-2.147l5.598-8.196h2.074v8.187h1.594v2.156z"/>
+                        <path id="step-4-blue" fill="#3b82f6" opacity="0" d="M16.359 17.583v-4.405l-2.971 4.405h2.971zM16 3c-7.18 0-13 5.82-13 13s5.82 13 13 13 13-5.82 13-13-5.82-13-13-13zM20.344 19.739h-1.594v2.595h-2.391v-2.595h-5.281v-2.147l5.598-8.196h2.074v8.187h1.594v2.156z"/>
+                    </g>
+                </g>
+
+                <!-- 1. Start Button -->
+                <g id="ai-button" style="transform-origin: center; opacity: 1;">
+                    <rect x="-150" y="-30" width="300" height="60" rx="12" fill="#3b82f6" filter="url(#glow)"/>
+                    <text x="0" y="2" font-family="system-ui, sans-serif" font-size="22" font-weight="600" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Create Inbound AI Agent</text>
+                </g>
+                
+                <!-- 2. Goal Field -->
+                <g id="goal-field" style="transform-origin: center; opacity: 0;">
+                    <rect x="-200" y="-30" width="400" height="60" rx="8" fill="#ffffff" filter="url(#shadow)"/>
+                    <rect x="-200" y="-30" width="400" height="60" rx="8" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                    <text x="-180" y="-40" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="start">Goal</text>
+                    <text id="goal-text" x="-180" y="2" font-family="system-ui, monospace" font-size="20" fill="#1e293b" text-anchor="start" dominant-baseline="middle"></text>
+                </g>
+                
+                <!-- 3. Audience Field -->
+                <g id="audience-field" style="transform-origin: center; opacity: 0;">
+                    <rect x="-200" y="-30" width="400" height="60" rx="8" fill="#ffffff" filter="url(#shadow)"/>
+                    <rect x="-200" y="-30" width="400" height="60" rx="8" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                    <text x="-180" y="-40" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="start">Select Audience</text>
+                    <text id="audience-text" x="-180" y="2" font-family="system-ui, sans-serif" font-size="18" fill="#94a3b8" text-anchor="start" dominant-baseline="middle">Select an option...</text>
+                    <path d="M 160 -5 L 170 5 L 180 -5" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                
+                <!-- 6. Business Info Field -->
+                <g id="business-info-field" style="transform-origin: center; opacity: 0;" transform="translate(0, -20)">
+                    <rect x="-220" y="-50" width="440" height="190" rx="12" fill="#ffffff" filter="url(#shadow)"/>
+                    <rect x="-220" y="-50" width="440" height="190" rx="12" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                    <text x="-190" y="-20" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#64748b" text-anchor="start">Business Info</text>
+                    
+                    <text x="-190" y="5" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#94a3b8" text-anchor="start">Title</text>
+                    <rect x="-190" y="15" width="340" height="40" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+                    <text id="bi-title-text" x="-180" y="36" font-family="system-ui, monospace" font-size="16" fill="#1e293b" text-anchor="start" dominant-baseline="middle"></text>
+                    
+                    <text x="-190" y="70" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#94a3b8" text-anchor="start">Description</text>
+                    <rect x="-190" y="80" width="340" height="40" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+                    <text id="bi-desc-text" x="-180" y="101" font-family="system-ui, monospace" font-size="16" fill="#1e293b" text-anchor="start" dominant-baseline="middle"></text>
+                    
+                    <g transform="translate(165, 15)">
+                        <rect x="0" y="0" width="40" height="40" rx="6" fill="#fee2e2" />
+                        <!-- New Detailed Trash Icon -->
+                        <g transform="translate(8, 8)" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10 11V17"/>
+                            <path d="M14 11V17"/>
+                            <path d="M4 7H20"/>
+                            <path d="M6 7H12H18V18C18 19.6569 16.6569 21 15 21H9C7.34315 21 6 19.6569 6 18V7Z"/>
+                            <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z"/>
+                        </g>
+                    </g>
+                    <g transform="translate(165, 80)">
+                        <rect x="0" y="0" width="40" height="40" rx="6" fill="#f1f5f9" />
+                        <path d="M20 12 v16 M12 20 h16" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round"/>
+                    </g>
+                </g>
+
+                <!-- 7. Step Back Condition Field -->
+                <g id="step-back-field" style="transform-origin: center; opacity: 0;">
+                    <rect x="-200" y="-30" width="400" height="60" rx="8" fill="#ffffff" filter="url(#shadow)"/>
+                    <rect x="-200" y="-30" width="400" height="60" rx="8" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                    <text x="-180" y="-40" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="start">Step Back Condition</text>
+                    <text id="sb-text" x="-180" y="2" font-family="system-ui, monospace" font-size="16" fill="#1e293b" text-anchor="start" dominant-baseline="middle"></text>
+                </g>
+
+                <!-- Next Button -->
+                <g id="next-button" style="transform-origin: center; opacity: 0;">
+                    <rect x="-60" y="-25" width="120" height="50" rx="10" fill="#3b82f6" filter="url(#glow)"/>
+                    <text x="0" y="2" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Next</text>
+                </g>
+                
+                <!-- Submit Button -->
+                <g id="submit-button" style="transform-origin: center; opacity: 0;">
+                    <rect x="-60" y="-25" width="120" height="50" rx="10" fill="#3b82f6" filter="url(#glow)"/>
+                    <text x="0" y="2" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Submit</text>
+                </g>
+                
+                <!-- 4. Dropdown Menu (Z-index placement) -->
+                <g id="dropdown-menu" style="transform-origin: center top; opacity: 0;" transform="translate(0, 35)">
+                    <rect x="-200" y="0" width="400" height="90" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="url(#shadow)"/>
+                    <rect id="option-pipeline" x="-195" y="5" width="390" height="40" rx="6" fill="#f1f5f9" opacity="0"/>
+                    <text x="-180" y="27" font-family="system-ui, sans-serif" font-size="16" fill="#1e293b" dominant-baseline="middle">Pipeline</text>
+                    <rect x="-195" y="45" width="390" height="40" rx="6" fill="#ffffff" />
+                    <text x="-180" y="67" font-family="system-ui, sans-serif" font-size="16" fill="#1e293b" dominant-baseline="middle">Tags</text>
+                </g>
+                
+                <!-- 5. Checkboxes List (Z-index placement) -->
+                <g id="checkboxes" style="opacity: 0;">
+                    <g transform="translate(-200, 50)">
+                        <rect x="0" y="0" width="20" height="20" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+                        <g id="cb-active-1" style="opacity: 0;">
+                            <rect x="0" y="0" width="20" height="20" rx="4" fill="#3b82f6" />
+                            <path d="M 4 10 L 8 14 L 16 6" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                        <text x="30" y="12" font-family="system-ui, sans-serif" font-size="16" fill="#1e293b" dominant-baseline="middle">AI Course Sale</text>
+                    </g>
+                    <g transform="translate(-200, 85)">
+                        <rect x="0" y="0" width="20" height="20" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+                        <text x="30" y="12" font-family="system-ui, sans-serif" font-size="16" fill="#1e293b" dominant-baseline="middle">AI Course Support</text>
+                    </g>
+                </g>
+            </g>
+
+            <g id="cursor-layer" style="opacity: 0;" fill="none">
+                <g transform="translate(-24, -24) scale(3)">
+                    <path d="M10.4465 17.1839L8.09636 10.6556C7.52315 9.06338 9.06333 7.5232 10.6556 8.09641L17.1839 10.4466C19.118 11.1429 18.8694 13.9539 16.843 14.2998L16.0671 14.4323C15.2305 14.5752 14.5751 15.2305 14.4323 16.0672L14.2998 16.8431C13.9538 18.8694 11.1428 19.1181 10.4465 17.1839Z" stroke="#1e293b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <g id="click-lines" style="opacity: 0; transform-origin: 0 0;">
+                    <g stroke="#1e293b" stroke-width="6" stroke-linecap="round">
+                        <line x1="-8" y1="-8" x2="-20" y2="-20" />
+                        <line x1="5" y1="-12" x2="8" y2="-26" />
+                        <line x1="-12" y1="5" x2="-26" y2="8" />
+                    </g>
+                </g>
+            </g>
+        </svg>
+    </div>
+
+    <script src="svg_animations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const manager = new AnimationManager('animated-svg');
+            
+            const gridLayer = manager.createLayer('grid-layer', '#bg-rect').setCustomUpdate((layer, deltaTime) => {
+                layer.state.offset = (layer.state.offset || 0) - (deltaTime / 1000) * 15;
+                if (layer.state.offset <= -40) layer.state.offset = 0;
+                layer.element.setAttribute('transform', `translate(${layer.state.offset}, ${layer.state.offset})`);
+            });
+            
+            const btnLayer = manager.createLayer('btn-layer', '#ai-button');
+            const fieldLayer = manager.createLayer('field-layer', '#goal-field');
+            const textLayer = manager.createLayer('text-layer', '#goal-text');
+            const nextBtnLayer = manager.createLayer('next-button-layer', '#next-button');
+            const audienceLayer = manager.createLayer('audience-layer', '#audience-field');
+            const audienceTextLayer = manager.createLayer('audience-text-layer', '#audience-text');
+            const menuLayer = manager.createLayer('menu-layer', '#dropdown-menu');
+            const checkboxesLayer = manager.createLayer('checkboxes-layer', '#checkboxes');
+            const cbActiveLayer = manager.createLayer('cb-active-layer', '#cb-active-1');
+            const linesLayer = manager.createLayer('lines-layer', '#click-lines');
+            
+            const biFieldLayer = manager.createLayer('bi-field-layer', '#business-info-field');
+            const biTitleTextLayer = manager.createLayer('bi-title-text-layer', '#bi-title-text');
+            const biDescTextLayer = manager.createLayer('bi-desc-text-layer', '#bi-desc-text');
+            const sbFieldLayer = manager.createLayer('sb-field-layer', '#step-back-field');
+            const sbTextLayer = manager.createLayer('sb-text-layer', '#sb-text');
+            const submitBtnLayer = manager.createLayer('submit-button-layer', '#submit-button');
+            
+            // Stepper layers
+            const line1to2 = manager.createLayer('line-1-2', '#line-1-2');
+            const line2to3 = manager.createLayer('line-2-3', '#line-2-3');
+            const line3to4 = manager.createLayer('line-3-4', '#line-3-4');
+            const step2Blue = manager.createLayer('step-2-blue', '#step-2-blue');
+            const step3Blue = manager.createLayer('step-3-blue', '#step-3-blue');
+            const step4Blue = manager.createLayer('step-4-blue', '#step-4-blue');
+            
+            // Initialize blue lines to scale 0 natively via the engine (overrides any inline styles)
+            line1to2.setSequence([{ animations: [{ type: 'scale', startScaleX: 0, endScaleX: 0 }], duration: 1 }]).start();
+            line2to3.setSequence([{ animations: [{ type: 'scale', startScaleX: 0, endScaleX: 0 }], duration: 1 }]).start();
+            line3to4.setSequence([{ animations: [{ type: 'scale', startScaleX: 0, endScaleX: 0 }], duration: 1 }]).start();
+            
+            nextBtnLayer.setSequence([{ animations: [{ type: 'move', startX: 0, endX: 0, startY: 80, endY: 80 }], duration: 1 }]).start();
+            submitBtnLayer.setSequence([{ animations: [{ type: 'move', startX: 0, endX: 0, startY: 80, endY: 80 }], duration: 1 }]).start();
+
+            const cursorSequence = [
+                // 1. Start
+                { animations: [{ type: 'move', startX: 1000, endX: 520, startY: 600, endY: 260 }, { type: 'fade', startOpacity: 0, endOpacity: 1 }, { type: 'scale', startScale: 1, endScale: 1 }], duration: 1200 },
+                { animations: [], duration: 200 },
+                { animations: [{ type: 'scale', startScale: 1, endScale: 0.85 }], duration: 100 },
+                { type: 'emit', event: 'clicked-create' },
+                { animations: [{ type: 'scale', startScale: 0.85, endScale: 1 }], duration: 150 },
+                { animations: [], duration: 500 },
+                
+                // 2. Goal Field
+                { animations: [{ type: 'move', startX: 520, endX: 680, startY: 260, endY: 260 }], duration: 600 },
+                { animations: [], duration: 100 },
+                { animations: [{ type: 'scale', startScale: 1, endScale: 0.85 }], duration: 100 },
+                { type: 'emit', event: 'clicked-goal' },
+                { animations: [{ type: 'scale', startScale: 0.85, endScale: 1 }], duration: 150 },
+                { animations: [], duration: 1200 },
+                
+                // 3. Click Next (1)
+                { animations: [{ type: 'move', startX: 680, endX: 520, startY: 260, endY: 340 }], duration: 500 },
+                { animations: [], duration: 100 },
+                { animations: [{ type: 'scale', startScale: 1, endScale: 0.85 }], duration: 100 },
+                { type: 'emit', event: 'clicked-next-1' },
+                { animations: [{ type: 'scale', startScale: 0.85, endScale: 1 }], duration: 150 },
+                { animations: [], duration: 500 },
+                
+                // 4. Click Audience Dropdown
+                { animations: [{ type: 'move', startX: 520, endX: 680, startY: 340, endY: 260 }], duration: 600 },
+                { animations: [], duration: 100 },
+                { animations: [{ type: 'scale', startScale: 1, endScale: 0.85 }], duration: 100 },
+                { type: 'emit', event: 'clicked-dropdown' },
+                { animations: [{ type: 'scale', startScale: 0.85, endScale: 1 }], duration: 150 },
+                { animations: [], duration: 300 },
+                
+                // 5. Select Pipeline
+                { animations: [{ type: 'move', startX: 680, endX: 500, startY: 260, endY: 310 }], duration: 400 },
+                { animations: [], duration: 100 },
+                { animations: [{ type: 'scale', startScale: 1, endScale: 0.85 }], duration: 100 },
+                { type: 'emit', event: 'clicked-pipeline' },
+                { animations: [{ type: 'scale', startScale: 0.85, endScale: 1 }], duration: 150 },
+                { animations: [], duration: 500 },
+                
+                // 6. Click Checkbox
+                { animations: [{ type: 'move', startX: 500, endX: 310, startY: 310, endY: 310 }], duration: 500 },
+                { animations: [], duration: 100 },
+                { animations: [{ type: 'scale', startScale: 1, endScale: 0.85 }], duration: 100 },
+                { type: 'emit', event: 'clicked-checkbox' },
+                { animations: [{ type: 'scale', startScale: 0.85, endScale: 1 }], duration: 150 },
+                { animations: [], duration: 400 },
+                
+                // 7. Click Next (2)
+                { animations: [{ type: 'move', startX: 310, endX: 520, startY: 310, endY: 430 }], duration: 600 },
+                { animations: [], duration: 100 },
+                { animations: [{ type: 'scale', startScale: 1, endScale: 0.85 }], duration: 100 },
+                { type: 'emit', event: 'clicked-next-2' },
+                { animations: [{ type: 'scale', startScale: 0.85, endScale: 1 }], duration: 150 },
+                { animations: [], duration: 500 },
+                
+                // 8. Business Info: Title Field
+                { animations: [{ type: 'move', startX: 520, endX: 650, startY: 430, endY: 265 }], duration: 600 },
+                { animations: [], duration: 100 },
+                { animations: [{ type: 'scale', startScale: 1, endScale: 0.85 }], duration: 100 },
+                { type: 'emit', event: 'clicked-bi-title' },
+                { animations: [{ type: 'scale', startScale: 0.85, endScale: 1 }], duration: 150 },
+                { type: 'emit', event: 'type-bi-title' },
+                { animations: [], duration: 800 },
+                
+                // 9. Business Info: Description Field
+                { animations: [{ type: 'move', startX: 650, endX: 650, startY: 265, endY: 330 }], duration: 300 },
+                { animations: [], duration: 100 },
+                { animations: [{ type: 'scale', startScale: 1, endScale: 0.85 }], duration: 100 },
+                { type: 'emit', event: 'clicked-bi-desc' },
+                { animations: [{ type: 'scale', startScale: 0.85, endScale: 1 }], duration: 150 },
+                { type: 'emit', event: 'type-bi-desc' },
+                { animations: [], duration: 1000 },
+                
+                // 10. Click Next (3)
+                { animations: [{ type: 'move', startX: 650, endX: 520, startY: 330, endY: 430 }], duration: 500 },
+                { animations: [], duration: 100 },
+                { animations: [{ type: 'scale', startScale: 1, endScale: 0.85 }], duration: 100 },
+                { type: 'emit', event: 'clicked-next-3' },
+                { animations: [{ type: 'scale', startScale: 0.85, endScale: 1 }], duration: 150 },
+                { animations: [], duration: 500 },
+                
+                // 11. Step Back Condition Field
+                { animations: [{ type: 'move', startX: 520, endX: 680, startY: 430, endY: 250 }], duration: 600 },
+                { animations: [], duration: 100 },
+                { animations: [{ type: 'scale', startScale: 1, endScale: 0.85 }], duration: 100 },
+                { type: 'emit', event: 'clicked-sb' },
+                { animations: [{ type: 'scale', startScale: 0.85, endScale: 1 }], duration: 150 },
+                { type: 'emit', event: 'type-sb' },
+                { animations: [], duration: 1500 },
+                
+                // 12. Click Submit
+                { animations: [{ type: 'move', startX: 680, endX: 520, startY: 250, endY: 330 }], duration: 500 },
+                { animations: [], duration: 100 },
+                { animations: [{ type: 'scale', startScale: 1, endScale: 0.85 }], duration: 100 },
+                { type: 'emit', event: 'clicked-submit' },
+                { animations: [{ type: 'scale', startScale: 0.85, endScale: 1 }], duration: 150 },
+                { animations: [], duration: 1000 },
+                
+                // End loop
+                { animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 300 },
+                { animations: [{ type: 'move', startX: 1000, endX: 1000, startY: 600, endY: 600 }], duration: 10 },
+                { type: 'emit', event: 'reset-sequence' },
+                { animations: [], duration: 500 }
+            ];
+            
+            const cursorLayer = manager.createLayer('cursor-layer', '#cursor-layer').setSequence(cursorSequence, true);
+            
+            function triggerClickExplosion() {
+                linesLayer.setSequence([
+                    { animations: [{ type: 'scale', startScale: 0.1, endScale: 1.5 }, { type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 300 }
+                ]).start();
+            }
+
+            cursorLayer.on('clicked-create', () => {
+                triggerClickExplosion();
+                btnLayer.setSequence([
+                    { animations: [{ type: 'scale', startScale: 1, endScale: 0.95 }], duration: 100 },
+                    { animations: [{ type: 'scale', startScale: 0.95, endScale: 1 }], duration: 150 },
+                    { animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 200 }
+                ]).start();
+                fieldLayer.setSequence([{ animations: [], duration: 250 }, { animations: [{ type: 'fade', startOpacity: 0, endOpacity: 1 }], duration: 200 }]).start();
+                nextBtnLayer.setSequence([{ animations: [], duration: 250 }, { animations: [{ type: 'fade', startOpacity: 0, endOpacity: 1 }, { type: 'move', startX: 0, endX: 0, startY: 80, endY: 80 }], duration: 200 }]).start();
+            });
+
+            cursorLayer.on('clicked-goal', () => {
+                triggerClickExplosion();
+                fieldLayer.setSequence([{ animations: [{ type: 'scale', startScale: 1, endScale: 0.98 }], duration: 100 }, { animations: [{ type: 'scale', startScale: 0.98, endScale: 1 }], duration: 150 }]).start();
+                textLayer.setSequence([{ animations: [{ type: 'type', text: "Qualify the leads." }], duration: 1000 }]).start();
+            });
+
+            cursorLayer.on('clicked-next-1', () => {
+                triggerClickExplosion();
+                nextBtnLayer.setSequence([{ animations: [{ type: 'scale', startScale: 1, endScale: 0.95 }], duration: 100 }, { animations: [{ type: 'scale', startScale: 0.95, endScale: 1 }], duration: 150 }]).start();
+                fieldLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 200 }]).start();
+                audienceLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 0, endOpacity: 1 }], duration: 200 }]).start();
+                
+                // Stepper Progression 1 -> 2
+                line1to2.setSequence([{ animations: [{ type: 'scale', startScaleX: 0, endScaleX: 1 }], duration: 300 }]).start();
+                step2Blue.setSequence([{ animations: [], duration: 250 }, { animations: [{ type: 'fade', startOpacity: 0, endOpacity: 1 }], duration: 150 }]).start();
+            });
+
+            cursorLayer.on('clicked-dropdown', () => {
+                triggerClickExplosion();
+                audienceLayer.setSequence([{ animations: [{ type: 'scale', startScale: 1, endScale: 0.98 }], duration: 100 }, { animations: [{ type: 'scale', startScale: 0.98, endScale: 1 }], duration: 150 }]).start();
+                menuLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 0, endOpacity: 1 }], duration: 150 }]).start();
+            });
+
+            cursorLayer.on('clicked-pipeline', () => {
+                triggerClickExplosion();
+                menuLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 150 }]).start();
+                audienceTextLayer.setSequence([{ animations: [{ type: 'type', text: "Pipeline" }], duration: 10 }]).start();
+                document.getElementById('audience-text').setAttribute('fill', '#1e293b');
+                checkboxesLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 0, endOpacity: 1 }], duration: 300 }]).start();
+                nextBtnLayer.setSequence([{ animations: [{ type: 'move', startX: 0, endX: 0, startY: 80, endY: 170 }], duration: 300 }]).start();
+            });
+
+            cursorLayer.on('clicked-checkbox', () => {
+                triggerClickExplosion();
+                cbActiveLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 0, endOpacity: 1 }], duration: 150 }]).start();
+            });
+
+            cursorLayer.on('clicked-next-2', () => {
+                triggerClickExplosion();
+                nextBtnLayer.setSequence([{ animations: [{ type: 'scale', startScale: 1, endScale: 0.95 }], duration: 100 }, { animations: [{ type: 'scale', startScale: 0.95, endScale: 1 }], duration: 150 }]).start();
+                
+                audienceLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 200 }]).start();
+                checkboxesLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 200 }]).start();
+                cbActiveLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 200 }]).start();
+                biFieldLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 0, endOpacity: 1 }], duration: 300 }]).start();
+                
+                // Stepper Progression 2 -> 3
+                line2to3.setSequence([{ animations: [{ type: 'scale', startScaleX: 0, endScaleX: 1 }], duration: 300 }]).start();
+                step3Blue.setSequence([{ animations: [], duration: 250 }, { animations: [{ type: 'fade', startOpacity: 0, endOpacity: 1 }], duration: 150 }]).start();
+            });
+
+            cursorLayer.on('clicked-bi-title', () => {
+                triggerClickExplosion();
+                biFieldLayer.setSequence([{ animations: [{ type: 'scale', startScale: 1, endScale: 0.99 }], duration: 100 }, { animations: [{ type: 'scale', startScale: 0.99, endScale: 1 }], duration: 150 }]).start();
+            });
+            cursorLayer.on('type-bi-title', () => {
+                biTitleTextLayer.setSequence([{ animations: [{ type: 'type', text: "Course Details" }], duration: 600 }]).start();
+            });
+
+            cursorLayer.on('clicked-bi-desc', () => {
+                triggerClickExplosion();
+                biFieldLayer.setSequence([{ animations: [{ type: 'scale', startScale: 1, endScale: 0.99 }], duration: 100 }, { animations: [{ type: 'scale', startScale: 0.99, endScale: 1 }], duration: 150 }]).start();
+            });
+            cursorLayer.on('type-bi-desc', () => {
+                biDescTextLayer.setSequence([{ animations: [{ type: 'type', text: "Lorem ipsum dolor sit amet consectetur" }], duration: 900 }]).start();
+            });
+
+            cursorLayer.on('clicked-next-3', () => {
+                triggerClickExplosion();
+                nextBtnLayer.setSequence([
+                    { animations: [{ type: 'scale', startScale: 1, endScale: 0.95 }], duration: 100 }, 
+                    { animations: [{ type: 'scale', startScale: 0.95, endScale: 1 }], duration: 150 },
+                    { animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 200 }
+                ]).start();
+                
+                biFieldLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 200 }]).start();
+                
+                sbFieldLayer.setSequence([{ animations: [], duration: 200 }, { animations: [{ type: 'fade', startOpacity: 0, endOpacity: 1 }], duration: 200 }]).start();
+                submitBtnLayer.setSequence([{ animations: [], duration: 200 }, { animations: [{ type: 'fade', startOpacity: 0, endOpacity: 1 }], duration: 200 }]).start();
+                
+                // Stepper Progression 3 -> 4
+                line3to4.setSequence([{ animations: [{ type: 'scale', startScaleX: 0, endScaleX: 1 }], duration: 300 }]).start();
+                step4Blue.setSequence([{ animations: [], duration: 250 }, { animations: [{ type: 'fade', startOpacity: 0, endOpacity: 1 }], duration: 150 }]).start();
+            });
+
+            cursorLayer.on('clicked-sb', () => {
+                triggerClickExplosion();
+                sbFieldLayer.setSequence([{ animations: [{ type: 'scale', startScale: 1, endScale: 0.98 }], duration: 100 }, { animations: [{ type: 'scale', startScale: 0.98, endScale: 1 }], duration: 150 }]).start();
+            });
+            cursorLayer.on('type-sb', () => {
+                sbTextLayer.setSequence([{ animations: [{ type: 'type', text: "When user wants to know the price" }], duration: 1200 }]).start();
+            });
+
+            cursorLayer.on('clicked-submit', () => {
+                triggerClickExplosion();
+                submitBtnLayer.setSequence([{ animations: [{ type: 'scale', startScale: 1, endScale: 0.95 }], duration: 100 }, { animations: [{ type: 'scale', startScale: 0.95, endScale: 1 }], duration: 150 }]).start();
+            });
+
+            cursorLayer.on('reset-sequence', () => {
+                btnLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 0, endOpacity: 1 }], duration: 10 }]).start();
+                fieldLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 10 }]).start();
+                audienceLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 10 }]).start();
+                menuLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 10 }]).start();
+                checkboxesLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 10 }]).start();
+                cbActiveLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 10 }]).start();
+                biFieldLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 10 }]).start();
+                sbFieldLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 10 }]).start();
+                
+                textLayer.setSequence([{ animations: [{ type: 'type', text: "" }], duration: 10 }]).start();
+                audienceTextLayer.setSequence([{ animations: [{ type: 'type', text: "Select an option..." }], duration: 10 }]).start();
+                document.getElementById('audience-text').setAttribute('fill', '#94a3b8');
+                biTitleTextLayer.setSequence([{ animations: [{ type: 'type', text: "" }], duration: 10 }]).start();
+                biDescTextLayer.setSequence([{ animations: [{ type: 'type', text: "" }], duration: 10 }]).start();
+                sbTextLayer.setSequence([{ animations: [{ type: 'type', text: "" }], duration: 10 }]).start();
+                
+                nextBtnLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }, { type: 'move', startX: 0, endX: 0, startY: 170, endY: 80 }], duration: 10 }]).start();
+                submitBtnLayer.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 10 }]).start();
+                
+                // Stepper Reset
+                line1to2.setSequence([{ animations: [{ type: 'scale', startScaleX: 0, endScaleX: 0 }], duration: 10 }]).start();
+                line2to3.setSequence([{ animations: [{ type: 'scale', startScaleX: 0, endScaleX: 0 }], duration: 10 }]).start();
+                line3to4.setSequence([{ animations: [{ type: 'scale', startScaleX: 0, endScaleX: 0 }], duration: 10 }]).start();
+                step2Blue.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 10 }]).start();
+                step3Blue.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 10 }]).start();
+                step4Blue.setSequence([{ animations: [{ type: 'fade', startOpacity: 1, endOpacity: 0 }], duration: 10 }]).start();
+            });
+
+            manager.start();
+            gridLayer.start();
+            cursorLayer.start();
+        });
+    </script>
+</body>
+</html>
